@@ -25,14 +25,14 @@ export default function Home() {
           </div>
    
       <div className="flex flex-col items-center gap-y-8">
-    <div className="flex flex-col items-start gap-9 ml-[300px]">
+    <div className="flex flex-col gap-9 ml-[300px] justify-center items-center">
     <h1 className=" text-center text-7xl font-bold text-white text-nowrap justify-center items-center">
           Flow into Fluency.
         </h1>
-        <h1 className="max-w-[480px] text-left text-base font-regular tracking-wide text-white/60 lg:text-3xl">
+        <h1 className="max-w-[480px] text-center text-base font-regular tracking-wide leading-loose text-white/60 lg:text-3xl">
           Learn, practice, and master new languages with Fluently.
         </h1>
-        <div className="flex w-full max-w-[330px] flex-col items-center justify-center gap-y-3">
+        <div className="flex w-full max-w-[330px] flex-col items-center justify-center gap-y-3 ">
           <ClerkLoading>
             <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
           </ClerkLoading>
