@@ -1,4 +1,5 @@
 import { useAudio } from "react-use";
+import { useMemo } from "react";
 
 interface WordData {
   text: string;
@@ -8,6 +9,8 @@ interface WordData {
 }
 
 export const useAudioControls = (sentence: WordData[]) => {
-  // Return an array of audio elements and controls
-  return sentence.map((word) => useAudio({ src: word.audioSrc || "" }));
+  // Generate audio controls using useMemo to ensure hooks are called consistently
+  return useMemo(() => {
+    return sentence.map((word) => useAudio({ src: word.audioSrc || "" }));
+  }, [sentence]);
 };
