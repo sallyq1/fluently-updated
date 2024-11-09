@@ -49,7 +49,7 @@ const main = async () => {
         id: 1,
         courseId: 1, // French
         title: "Unit 1",
-        description: "Learn the basics of French",
+        description: "Greetings and Introductions",
         order: 1,
       },
     ]);
@@ -96,73 +96,61 @@ const main = async () => {
         order: 1,
         question: 'Click to review flashcards',
       },
-
+      
       {
         id: 2,
         lessonId: 1, 
-        type: "DRAG",
+        type: "ASSIST",
         order: 2,
-        question: 'Click to order',
-        correctOrder: ['Bonjour','Comment ça va?','Ça va bien, merci.','Et toi?']
+        question: '"Je mappelle..."',
       },
       
       {
         id: 3,
         lessonId: 1, 
-        type: "ASSIST",
+        type: "SELECT",
         order: 3,
-        question: '"Je mappelle..."',
+        question: 'Which one of these is "Im fine, thank you"?',
       },
-      
       {
         id: 4,
         lessonId: 1, 
-        type: "SELECT",
+        type: "ASSIST",
         order: 4,
-        question: 'Which one of these is "Ça va bien, merci"?',
+        question: 'Nice to Meet you!',
       },
+
       {
         id: 5,
         lessonId: 1, 
-        type: "ASSIST",
+        type: "SELECT",
         order: 5,
-        question: '"Enchanté"',
+        question: 'Which one of these is "Et toi?"?',
       },
-
-     
+      
       {
         id: 6,
         lessonId: 1, 
-        type: "SELECT",
+        type: "ASSIST",
         order: 6,
-        question: 'Which one of these is "Et toi?"?',
+        question: '"Bonjour"',
       },
       
       {
         id: 7,
         lessonId: 1, 
-        type: "ASSIST",
+        type: "SELECT",
         order: 7,
-        question: '"bonjour"',
+        question: 'Which one of these is "Salut"?',
       },
-      
       {
         id: 8,
         lessonId: 1, 
-        type: "SELECT",
+        type: "DRAG",
         order: 8,
-        question: 'Which one of these is "Salut"?',
+        question: 'Click to order',
+        correctOrder: ['Bonjour','Comment ça va?','Ça va bien, merci.','Et toi?']
       },
-   
-
-      // {
-      //   id: 9,
-      //   lessonId: 1,
-      //   type: "DRAG",
-      //   order: 9,
-      //   question: '',
-      //   correctOrder: ['Comment ça va?','Ça va bien, merci.','Et toi?']
-      // },
       {
         id: 9,
         lessonId: 1, 
@@ -175,39 +163,39 @@ const main = async () => {
         lessonId: 1, // Nouns
         type: "EXAMPLE",
         order: 10,
-        question: 'Hover over word to see translation. Click to hear audio.',
+        question: 'Hover over word to see translation.',
       },
 
-      // {
-      //   id: 12,
-      //   lessonId: 1,
-      //   type: "DRAG",
-      //   order: 12,
-      //   question: '',
-      //   correctOrder: ['Bonjour', 'Comment ça va?', 'Ça va bien, merci.', 'Et toi?']
-      // },
       {
         id: 11,
-        lessonId: 1, 
-        type: "SELECT",
+        lessonId: 1,
+        type: "DRAG",
         order: 11,
-        question: 'Which one of these is "Et toi"?',
+        question: '',
+        correctOrder: ['Comment ça va?','Ça va bien, merci.','Et toi?']
       },
       {
         id: 12,
         lessonId: 1, 
-        type: "ASSIST",
+        type: "SELECT",
         order: 12,
+        question: 'Which one of these is "Et toi"?',
+      },
+      {
+        id: 13,
+        lessonId: 1, 
+        type: "ASSIST",
+        order: 13,
         question: '"Je mappelle"',
       },
-      // {
-      //   id: 15,
-      //   lessonId: 1,
-      //   type: "DRAG",
-      //   order: 15,
-      //   question: '',
-      //   correctOrder: ['Bonjour','Salut','Comment ça va?', 'Ça va bien, merci.','Je mappelle Felipe. Et toi?','Enchanté Felipe. Je mappelle Alex.']
-      // },
+      {
+        id: 14,
+        lessonId: 1,
+        type: "DRAG",
+        order: 14,
+        question: '',
+        correctOrder: ['Bonjour','Salut','Comment ça va?', 'Ça va bien, merci.','Je mappelle Felipe. Et toi?','Enchanté Felipe. Je mappelle Alex.']
+      },
     ]);
 
 
@@ -276,76 +264,22 @@ await db.insert(schema.challengeOptions).values([
   },
 ]);
 
-
-
-//drag
-await db.insert(schema.challengeOptions).values([
-  {
-    challengeId: 2, // "Order these": ['Bonjour', 'Comment ça va?', 'Ça va bien, merci.', 'Et toi?']
-    correct: false,
-    text: "Comment ça va?",
-    audioSrc: "/audio/Comment ca va .mp3",
-  },
-  {
-    challengeId: 2,
-    correct: false,
-    text: "Et toi?",
-    audioSrc: "/audio/Et toi.mp3",
-  },
-  {
-    challengeId: 2,
-    correct: false,
-    text: "Ça va bien, merci.",
-    audioSrc: "/audio/ca va bien.mp3",
-  },
-  {
-    challengeId: 2,
-    correct: false,
-    text: "Bonjour",
-    audioSrc: "/audio/Bonjour.mp3",
-  },
-]);
-
-
-
-// //assist
-// await db.insert(schema.challengeOptions).values([
-//   {
-//     challengeId: 2, // '"Comment ça va?"
-//     correct: false,
-//     text: "I'm fine, thank you.",
-//     audioSrc: "/audio/ca va bien merci .mp3",
-//   },
-//   {
-//     challengeId: 2,
-//     correct: true,
-//     text: "How are you?",
-//     audioSrc: "/audio/Comment ca va .mp3",
-//   },
-//   {
-//     challengeId: 2,
-//     correct: false,
-//     text: "Nice to meet you.",
-//     audioSrc: "/audio/Enchante.mp3",
-//   },
-// ]);
-
 //assist
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 3, // jmappelle
+    challengeId: 2, // jmappelle
     correct: false,
     text: "I'm fine, thank you.",
     audioSrc: "/audio/ca va bien merci .mp3",
   },
   {
-    challengeId: 3,
+    challengeId: 2,
     correct: false,
     text: "And you...",
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 3,
+    challengeId: 2,
     correct: true,
     text: "My name is...",
     audioSrc: "/audio/Je m appelle.mp3",
@@ -355,21 +289,21 @@ await db.insert(schema.challengeOptions).values([
 //select
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 4, //'Which one of these is "Ça va bien, merci"?'
+    challengeId: 3, //'Which one of these is "Ça va bien, merci"?'
     imageSrc: "/and-you.svg",
     correct: false,
     text: "And you?",
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 4,
+    challengeId: 3,
     imageSrc: "/good.svg",
     correct: true,
     text: "Ça va bien, merci",
     audioSrc: "/audio/ca va bien merci .mp3",
   },
   {
-    challengeId: 4,
+    challengeId: 3,
     imageSrc: "/handshake.svg",
     correct: false,
     text: "Nice to meet you",
@@ -381,19 +315,19 @@ await db.insert(schema.challengeOptions).values([
 //assist
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 5, //  '"Nice to meet you"'
+    challengeId: 4, //  '"Nice to meet you"'
     correct: false,
     text: "Et toi",
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 5,
+    challengeId: 4,
     correct: false,
     text: "Ça va bien, merci",
     audioSrc: "/audio/ca va bien merci .mp3",
   },
   {
-    challengeId: 5,
+    challengeId: 4,
     correct: true,
     text: "Enchanté",
     audioSrc: "/audio/Enchante.mp3",
@@ -401,10 +335,12 @@ await db.insert(schema.challengeOptions).values([
 ]);
 
 
+
+
 //select
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 6, //    'Which one of these is "Et toi?"?'
+    challengeId: 5, //    'Which one of these is "Et toi?"?'
 
     imageSrc: "/and-you.svg",
     correct: true,
@@ -412,14 +348,14 @@ await db.insert(schema.challengeOptions).values([
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 6,
+    challengeId: 5,
     imageSrc: "/thank-you.svg",
     correct: false,
     text: "Thank you",
     audioSrc: "/audio/merci.mp3",
   },
   {
-    challengeId: 6,
+    challengeId: 5,
     imageSrc: "/good.svg",
     correct: false,
     text: "I'm good",
@@ -432,19 +368,19 @@ await db.insert(schema.challengeOptions).values([
 //assist
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 7, //'"bonjour"'
+    challengeId: 6, //'"bonjour"'
     correct: false,
     text: "Hi",
     audioSrc: "/audio/Salut.mp3",
   },
   {
-    challengeId: 7,
+    challengeId: 6,
     correct: false,
     text: "And you?",
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 7,
+    challengeId: 6,
     correct: true,
     text: "Hello",
     audioSrc: "/audio/Bonjour.mp3",
@@ -452,11 +388,10 @@ await db.insert(schema.challengeOptions).values([
 ]);
 
 
-
 //select
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 8, //  'Which one of these is "salut"?'
+    challengeId: 7, //  'Which one of these is "salut"?'
    
     imageSrc: "/thank-you.svg",
     correct: false,
@@ -464,14 +399,14 @@ await db.insert(schema.challengeOptions).values([
     audioSrc: "/audio/merci.mp3",
   },
   {
-    challengeId: 8,
+    challengeId: 7,
     imageSrc: "/hi.svg",
     correct: true,
     text: "Hi",
     audioSrc: "/audio/Salut.mp3",
   },
   {
-    challengeId: 8,
+    challengeId: 7,
     imageSrc: "/hello.svg",
     correct: false,
     text: "Hello",
@@ -480,33 +415,33 @@ await db.insert(schema.challengeOptions).values([
 ]);
 
 
-
-// //drag
-// await db.insert(schema.challengeOptions).values([
-//   {
-//     challengeId: 9, // "Order these" :  ['Comment ça va?','Ça va bien, merci.','Et toi?']?'
-//     imageSrc: "/good.svg",
-//     correct: false,
-//     text: "Ça va bien, merci.",
-//     audioSrc: "/audio/ca va bien merci .mp3",
-//   },
-//   {
-//     challengeId: 9,
-//     imageSrc: "/and-you.svg",
-//     correct: false,
-//     text: "Et toi?",
-//     audioSrc: "/audio/Et toi.mp3",
-//   },
-//   {
-//     challengeId: 9,
-//     imageSrc: "/how-are-you.svg",
-//     correct: true,
-//     text: "Comment ça va?",
-//     audioSrc: "/audio/Comment ca va .mp3",
-//   },
-// ]);
-
-
+//drag
+await db.insert(schema.challengeOptions).values([
+  {
+    challengeId: 8, // "Order these": ['Bonjour', 'Comment ça va?', 'Ça va bien, merci.', 'Et toi?']
+    correct: false,
+    text: "Comment ça va?",
+    audioSrc: "/audio/Comment ca va .mp3",
+  },
+  {
+    challengeId: 8,
+    correct: false,
+    text: "Et toi?",
+    audioSrc: "/audio/Et toi.mp3",
+  },
+  {
+    challengeId: 8,
+    correct: false,
+    text: "Ça va bien, merci.",
+    audioSrc: "/audio/ca va bien.mp3",
+  },
+  {
+    challengeId: 8,
+    correct: false,
+    text: "Bonjour",
+    audioSrc: "/audio/Bonjour.mp3",
+  },
+]);
 
 
 //select
@@ -534,100 +469,125 @@ await db.insert(schema.challengeOptions).values([
   },
 ]);
 
-  
+
+
+
+
 //example
-    await db.insert(schema.challengeOptions).values([
-      {
-        challengeId: 10, //example sentence
-   
-        correct: false,
-        text: "Bonjour",
-        audioSrc: "/audio/Bonjour.mp3",
-        translation: "Hello",
-        pronunciation: "Bon-joor"
-      },
-      {
-        challengeId: 10,
+await db.insert(schema.challengeOptions).values([
+  {
+    challengeId: 10, //example sentence
 
-        correct: false,
-        text: "Comment",
-        audioSrc: "/audio/Comment.mp3",
-        translation: "How",
-        pronunciation: "Co-meh"
-      },
-      {
-        challengeId: 10,
-        correct: false,
-        text: "ça va?",
-        audioSrc: "/audio/ca va.mp3",
-        translation: "what will",
-        pronunciation: "ze va"
-      },
-      {
-        challengeId: 10,
-        correct: false,
-        text: "Ça va bien,",
-        audioSrc: "/audio/ca va bien.mp3",
-        translation: "I am good,",
-        pronunciation: "ze va be-yan"
-      },
-      {
-        challengeId: 10,
-        correct: false,
-        text: "merci.",
-        audioSrc: "/audio/merci.mp3",
-        translation: "thank you.",
-        pronunciation: "mer-si"
-      },
-      {
-        challengeId: 10,
-        correct: false,
-        text: "Et",
-        audioSrc: "/audio/Et toi.mp3",
-        translation: "And",
-        pronunciation: "eht"
-      },
-      {
-        challengeId: 10,
-        correct: false,
-        text: "toi?",
-        audioSrc: "/audio/Et toi.mp3",
-        translation: "you?",
-        pronunciation: "twa"
-      },
+    correct: false,
+    text: "Bonjour",
+    audioSrc: "/audio/Bonjour.mp3",
+    translation: "Hello",
+    pronunciation: "Bon-joor"
+  },
+  {
+    challengeId: 10,
 
-    ]);
+    correct: false,
+    text: "Comment",
+    audioSrc: "/audio/Comment.mp3",
+    translation: "How",
+    pronunciation: "Co-meh"
+  },
+  {
+    challengeId: 10,
+    correct: false,
+    text: "ça va?",
+    audioSrc: "/audio/ca va.mp3",
+    translation: "what will",
+    pronunciation: "ze va"
+  },
+  {
+    challengeId: 10,
+    correct: false,
+    text: "Ça va bien,",
+    audioSrc: "/audio/ca va bien.mp3",
+    translation: "I am good,",
+    pronunciation: "ze va be-yan"
+  },
+  {
+    challengeId: 10,
+    correct: false,
+    text: "merci.",
+    audioSrc: "/audio/merci.mp3",
+    translation: "thank you.",
+    pronunciation: "mer-si"
+  },
+  {
+    challengeId: 10,
+    correct: false,
+    text: "Et",
+    audioSrc: "/audio/Et toi.mp3",
+    translation: "And",
+    pronunciation: "eht"
+  },
+  {
+    challengeId: 10,
+    correct: false,
+    text: "toi?",
+    audioSrc: "/audio/Et toi.mp3",
+    translation: "you?",
+    pronunciation: "twa"
+  },
 
-
+]);
 
 
+//drag
+await db.insert(schema.challengeOptions).values([
+  {
+    challengeId: 11, // "Order these" :  ['Comment ça va?','Ça va bien, merci.','Et toi?']?'
+    imageSrc: "/good.svg",
+    correct: false,
+    text: "Ça va bien, merci.",
+    audioSrc: "/audio/ca va bien merci .mp3",
+  },
+  {
+    challengeId: 11,
+    imageSrc: "/and-you.svg",
+    correct: false,
+    text: "Et toi?",
+    audioSrc: "/audio/Et toi.mp3",
+  },
+  {
+    challengeId: 11,
+    imageSrc: "/how-are-you.svg",
+    correct: true,
+    text: "Comment ça va?",
+    audioSrc: "/audio/Comment ca va .mp3",
+  },
+]);
 
 
 //select
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 11, //'Which one of these is "Et toi?"?',
+    challengeId: 12, //'Which one of these is "Et toi?"?',
     imageSrc: "/thank-you.svg",
     correct: false,
     text: "Thank you",
     audioSrc: "/audio/merci.mp3",
   },
   {
-    challengeId: 11,
+    challengeId: 12,
     imageSrc: "/and-you.svg",
     correct: true,
     text: "And you?",
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 11,
+    challengeId: 12,
     imageSrc: "/good.svg",
     correct: false,
     text: "I am good",
     audioSrc: "/audio/ca va bien.mp3",
   },
   {
-    challengeId: 11,
+    challengeId: 12,
     imageSrc: "/hello.svg",
     correct: false,
     text: "Hello",
@@ -639,65 +599,65 @@ await db.insert(schema.challengeOptions).values([
 //assist
 await db.insert(schema.challengeOptions).values([
   {
-    challengeId: 12, // jmappelle
+    challengeId: 13, // jmappelle
     correct: false,
     text: "I'm fine, thank you.",
     audioSrc: "/audio/ca va bien merci .mp3",
   },
   {
-    challengeId: 12,
+    challengeId: 13,
     correct: false,
     text: "And you...",
     audioSrc: "/audio/Et toi.mp3",
   },
   {
-    challengeId: 12,
+    challengeId: 13,
     correct: true,
     text: "My name is...",
     audioSrc: "/audio/Je m appelle.mp3",
   },
 ]);
 
-// //drag
-// await db.insert(schema.challengeOptions).values([
-//   {
-//     challengeId: 15, //"Order these": ['Bonjour','Salut','Comment ça va?', 'Ça va bien, merci.','Je mappelle Felipe. Et toi?','Enchanté Felipe. Je mappelle Alex.']
-//     correct: false,
-//     text: "Bonjour",
-//     audioSrc: "/audio/Bonjour.mp3",
-//   },
-//   {
-//     challengeId: 15,
-//     correct: false,
-//     text: "Ça va bien, merci.",
-//     audioSrc: "/audio/ca va bien merci .mp3",
-//   },
-//   {
-//     challengeId: 15,
-//     correct: true,
-//     text: "Je mappelle Felipe. Et toi?",
-//     audioSrc: "/audio/Je mappelle Felipe E.mp3",
-//   },
-//   {
-//     challengeId: 15,
-//     correct: true,
-//     text: "Salut",
-//     audioSrc: "/audio/Salut.mp3",
-//   },
-//   {
-//     challengeId: 15,
-//     correct: true,
-//     text: "Enchanté Felipe. Je mappelle Alex.",
-//     audioSrc: "/audio/Enchante Felipe Fe m.mp3",
-//   },
-//   {
-//     challengeId: 15,
-//     correct: true,
-//     text: "Comment ça va?",
-//     audioSrc: "/audio/Comment ca va .mp3",
-//   },
+//drag
+await db.insert(schema.challengeOptions).values([
+  {
+    challengeId: 14, //"Order these": ['Bonjour','Salut','Comment ça va?', 'Ça va bien, merci.','Je mappelle Felipe. Et toi?','Enchanté Felipe. Je mappelle Alex.']
+    correct: false,
+    text: "Bonjour",
+    audioSrc: "/audio/Bonjour.mp3",
+  },
+  {
+    challengeId: 14,
+    correct: false,
+    text: "Ça va bien, merci.",
+    audioSrc: "/audio/ca va bien merci .mp3",
+  },
+  {
+    challengeId: 14,
+    correct: true,
+    text: "Je mappelle Felipe. Et toi?",
+    audioSrc: "/audio/Je mappelle Felipe E.mp3",
+  },
+  {
+    challengeId: 14,
+    correct: true,
+    text: "Salut",
+    audioSrc: "/audio/Salut.mp3",
+  },
+  {
+    challengeId: 14,
+    correct: true,
+    text: "Enchanté Felipe. Je mappelle Alex.",
+    audioSrc: "/audio/Enchante Felipe Fe m.mp3",
+  },
+  {
+    challengeId: 14,
+    correct: true,
+    text: "Comment ça va?",
+    audioSrc: "/audio/Comment ca va .mp3",
+  },
 
-// ]);
+]);
    
     
     console.log("Seeding finished");
