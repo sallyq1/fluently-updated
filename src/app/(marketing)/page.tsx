@@ -18,10 +18,10 @@ export default function Home() {
     items-center justify-center gap-2 p-4 lg:flex-row "
     >
                 <div
-            className="absolute mt-[200px] -ml-[1000px] h-[840px] w-[600px]
+            className="absolute mt-[200px] -ml-[1300px] h-[840px] w-[900px] rotate-[10]
        "
           >
-            <Image src="/hero-graphic.svg" alt="Hero" fill loading="eager" />
+            <Image src="/4x/swirl.png" alt="Hero" fill loading="eager" />
           </div>
    
       <div className="flex flex-col items-center gap-y-8">
