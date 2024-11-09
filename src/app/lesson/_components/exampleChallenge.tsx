@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAudioControls } from "../_components/hooks/useAudioControls"; // Import the custom hook
 import { useAudio } from "react-use";
 import { cn } from "@/lib/utils"; // Utility function for conditional classes
 import { Button } from "@/components/ui/button";
@@ -29,16 +30,16 @@ export const ExampleChallenge = ({
   const handleMouseLeave = () => {
     setHoveredWord(null);
   };
-
     // Generate audio elements and controls for each word at the top level
-    const audioControls = sentence.map((word) => useAudio({ src: word.audioSrc || "" }));
+    const audioControls = useAudioControls(sentence); // Call custom hook to get audio controls
+
 
 
   return (
     <div className="flex flex-col gap-3">
       <div className="relative flex flex-wrap gap-2 ">
       {sentence.map((word, index) => {
-          const [audio, , controls] = audioControls[index]; // Use pre-generated controls for this word
+          const [audio, , controls] = audioControls[index]; // Destructure audio controls
 
           return (
             <span
