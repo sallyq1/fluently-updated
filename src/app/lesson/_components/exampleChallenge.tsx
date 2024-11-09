@@ -44,7 +44,7 @@ export const ExampleChallenge = ({
           return (
             <span
               key={index}
-              className="relative cursor-pointer text-blue-500 hover:text-blue-700"
+              className="relative cursor-pointer text-black hover:text-[#23AAA7]"
               onMouseEnter={() => handleMouseEnter(word)}
               onMouseLeave={handleMouseLeave}
               onClick={() => controls.play()}
