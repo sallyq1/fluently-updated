@@ -47,7 +47,7 @@ className={cn(
       size={isMobile ? "sm" : "lg"}
       onClick={() => (window.location.href = `/lesson/${lessonId}`)}
     >
-      Practise again
+      Practice again
     </Button>
   )}
   <Button

@@ -311,7 +311,7 @@ useEffect(() => {
     saveAnalyticsData(); // Save analytics data if the lesson is completed
     displayAnalyticsData();
     return (
-      <div className="flex flex-col gap-32 space-between h-full">
+      <div className="flex flex-col gap-32 space-between h-full ">
      
         {finishAudio}
         <Confetti
@@ -322,7 +322,7 @@ useEffect(() => {
           tweenDuration={1000}
         />
  
-        <div className="mx-auto flex h-full max-w-lg flex-col items-center justify-center gap-y-4 text-center lg:gap-y-8">
+        <div className="mx-auto flex h-full max-w-lg flex-col items-center justify-center gap-28 text-center mt-20">
           <Image
             src="/finish.svg"
             alt="finish"

@@ -1,27 +1,23 @@
 import { useState } from "react";
-import { useAudioControls } from "../_components/hooks/useAudioControls"; // Import the custom hook
-import { useAudio } from "react-use";
-import { cn } from "@/lib/utils"; // Utility function for conditional classes
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
-type WordData = {
+interface WordData {
   text: string;
   pronunciation: string | null;
   definition: string | null;
-  audioSrc: string | null;
-};
+}
 
-type exampleChallengeProps = {
+interface ExampleChallengeProps {
   sentence: WordData[];
   onComplete: () => void;
-};
+}
 
 export const ExampleChallenge = ({
   sentence,
   onComplete,
-}: exampleChallengeProps) => {
-  const [hoveredWord, setHoveredWord] = useState<WordData | null>(null); // Track the word being hovered
+}: ExampleChallengeProps) => {
+  const [hoveredWord, setHoveredWord] = useState<WordData | null>(null);
 
   const handleMouseEnter = (word: WordData) => {
     setHoveredWord(word);
@@ -30,30 +26,20 @@ export const ExampleChallenge = ({
   const handleMouseLeave = () => {
     setHoveredWord(null);
   };
-    // Generate audio elements and controls for each word at the top level
-    const audioControls = useAudioControls(sentence); // Call custom hook to get audio controls
-
-
 
   return (
     <div className="flex flex-col gap-3">
       <div className="relative flex flex-wrap gap-2 ">
-      {sentence.map((word, index) => {
-          const [audio, , controls] = audioControls[index]; // Destructure audio controls
-
-          return (
-            <span
-              key={index}
-              className="relative cursor-pointer text-black hover:text-[#23AAA7]"
-              onMouseEnter={() => handleMouseEnter(word)}
-              onMouseLeave={handleMouseLeave}
-              onClick={() => controls.play()}
-            >
-              {audio}
-              <h1 className="text-3xl"> {word.text}</h1>
-            </span>
-          );
-        })}
+        {sentence.map((word, index) => (
+          <span
+            key={index}
+            className="relative cursor-pointer text-blue-500 hover:text-blue-700"
+            onMouseEnter={() => handleMouseEnter(word)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <h1 className="text-3xl">{word.text}</h1>
+          </span>
+        ))}
 
         {/* Tooltip for pronunciation and definition */}
         {hoveredWord && (
