@@ -311,7 +311,7 @@ useEffect(() => {
     saveAnalyticsData(); // Save analytics data if the lesson is completed
     displayAnalyticsData();
     return (
-      <div className="flex flex-col space-between h-full">
+      <div className="flex flex-col gap-32 space-between h-full">
      
         {finishAudio}
         <Confetti
